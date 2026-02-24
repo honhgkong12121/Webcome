@@ -1,0 +1,31 @@
+.nav-link:hover,
+.navbar-brand:hover {
+    border-bottom: 2px solid #000000;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f3f5;
+}
+
+.btn.btn-info {
+    transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.btn.btn-info:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card .card-body img {
+    transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.card .card-body img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-nav {
+    gap: 20px;
+    font-size: 20px;
+}

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="smallweb.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      .auth-link {
+        border: 1px solid #78ccff;
+        border-radius: 999px;
+        padding: 8px 18px !important;
+        color: #0d3d63 !important;
+        background: linear-gradient(135deg, #ecf8ff, #d6efff);
+        box-shadow: 0 10px 20px rgba(34, 122, 181, 0.22);
+        transition: all 200ms ease;
+      }
+
+      .auth-link:hover {
+        color: #08253d !important;
+        border-color: #4db3ef;
+        background: linear-gradient(135deg, #d9f1ff, #bce5ff);
+        transform: translateY(-2px);
+        box-shadow: 0 14px 24px rgba(26, 105, 161, 0.3);
+      }
+
+      .cold-modal {
+        border: 1px solid rgba(112, 186, 240, 0.45);
+        border-radius: 18px;
+        background: linear-gradient(160deg, rgba(244, 252, 255, 0.96), rgba(219, 241, 255, 0.94));
+        box-shadow: 0 20px 40px rgba(7, 63, 102, 0.24);
+      }
+
+      .auth-form .form-label {
+        font-weight: 600;
+        color: #0e3f66;
+      }
+
+      .auth-form .form-control {
+        border-radius: 12px;
+        border: 1px solid #9cd5f8;
+        background: #f3fbff;
+      }
+
+      .auth-form .form-control:focus {
+        border-color: #4faee9;
+        box-shadow: 0 0 0 0.2rem rgba(79, 174, 233, 0.25);
+        background: #fff;
+      }
+
+      #loginModal .btn-primary {
+        border: none;
+        border-radius: 12px;
+        font-weight: 700;
+        background: linear-gradient(135deg, #2f8fcb, #1d6da5);
+        box-shadow: 0 10px 20px rgba(26, 97, 149, 0.3);
+        transition: transform 180ms ease, filter 180ms ease;
+      }
+
+      #loginModal .btn-primary:hover {
+        transform: translateY(-1px);
+        filter: brightness(1.06);
+      }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white mb-1">
+        <img style="width: 200px; height: 100px; margin-left: 50px; margin-top: 10px;" src="../website/55abe951-333c-42ca-b894-1a1c83a4c020.jpg " alt="">
+        <p class="fs-4 ms-3">Welcome</p>
+  <div class="container-fluid">
+    <form class="d-flex mx-auto" style="max-width: 400px; width: 100%;">
+        <input class="form-control me-2 border-1" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-dark" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <div class="align-content-end d-flex justify-content-between p-2">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <a class="nav-link fw-bold" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link fw-bold auth-link" href="#" role="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+        </li>
+        <li class="nav-item">
+             <a class="nav-link fw-bold auth-link" href="#" role="button" data-bs-toggle="modal" data-bs-target="#registerModal">Register</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Contact me
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#"><i class="fa-brands fa-facebook text-primary"></i>Facebook</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-brands fa-telegram text-info"></i>Telegram</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </div>
+</nav>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img style="height: 800px; width: 1800px;" src="https://i.pinimg.com/1200x/4c/7e/06/4c7e0641f4eb2746d6eefa4576ad696d.jpg" class="d-block mx-auto" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img style="height: 800px; width: 1800px" src="https://i.pinimg.com/736x/4a/3d/e4/4a3de4ae0c98e0c7a9931cc89c93434c.jpg" class="d-block mx-auto" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img style="height: 800px; width: 1800px" src="https://i.pinimg.com/736x/6f/e1/11/6fe111d94ca6ab10e81c9bd96328a82d.jpg" class="d-block mx-auto" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<p class="text-center fw-bold fs-3 mt-3 mb-0">Food</p>
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-3">
+            <div class="card border-0">
+                <div class="card-body ">
+                    <img class="w-100" src="https://i.pinimg.com/1200x/aa/f3/aa/aaf3aa4e15769c860aff8b2a22edfc78.jpg" alt="">
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <p class="text-center fs-5">Burger</p>
+                    <p class="text-danger fw-bold text-center">$5.00</p>
+                    <button style="margin-left: 105px;" class="btn btn-info text-white w-50 " data-bs-toggle="modal" data-bs-target="#food"><i class="fa-solid fa-cart-flatbed-suitcase text-white"></i>       Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card border-0">
+                <div class="card-body ">
+                    <img class="w-100" src="https://i.pinimg.com/736x/3f/39/46/3f3946804c27e07f373c4e10d90bf915.jpg" alt="">
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <p class="text-center fs-5">Pizza</p>
+                    <p class="text-danger fw-bold text-center">$15.00</p>
+                    <button style="margin-left: 105px;" class="btn btn-info text-white w-50"data-bs-toggle="modal" data-bs-target="#food1">Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card border-0">
+                <div class="card-body ">
+                    <img class="w-100" src="https://i.pinimg.com/736x/82/e1/fc/82e1fc81f023010c76b9a248631b7860.jpg" alt="">
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <p class="text-center fs-5">Chicken Road</p>
+                    <p class="text-danger fw-bold text-center">$5.00</p>
+                    <button style="margin-left: 105px;" class="btn btn-info text-white w-50"><i class="fa-solid fa-cart-flatbed-suitcase text-white"></i>       Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card border-0">
+                <div class="card-body ">
+                    <img class="w-100" src="https://i.pinimg.com/736x/6e/7b/5e/6e7b5e91357a7ce785a75d3449c1ded5.jpg" alt="">
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <p class="text-center fs-5">french fries</p>
+                    <p class="text-danger fw-bold text-center">$2.99</p>
+                    <button style="margin-left: 105px;" class="btn btn-info text-white w-50"><i class="fa-solid fa-cart-flatbed-suitcase text-white"></i>       dd to cart</button>
+                </div>
+            </div>
+        </div>
+        <p class="fw-bold fs-3 text-center">Drink</p>
+        <div class="col-3">
+            <div class="card border-0">
+                <div class="card-body ">
+                    <img class="w-100" src="https://i.pinimg.com/1200x/c0/bc/a7/c0bca73f4e4392c62490f5391acf0746.jpg" alt="">
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <p class="text-center fs-5">Coke</p>
+                    <p class="text-danger fw-bold text-center">$2.00</p>
+                    <button style="margin-left: 105px;" class="btn btn-info text-white w-50"><i class="fa-solid fa-cart-flatbed-suitcase text-white"></i>       Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card border-0">
+                <div class="card-body ">
+                    <img class="w-100" src="https://i.pinimg.com/736x/e7/e2/b6/e7e2b63e9066f63dd29825be9142e49a.jpg" alt="">
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <p class="text-center fs-5">Matcha Strawberry</p>
+                    <p class="text-danger fw-bold text-center">$2.50</p>
+                    <button style="margin-left: 105px;" class="btn btn-info text-white w-50"data-bs-toggle="modal" data-bs-target="#food2"><i class="fa-solid fa-cart-flatbed-suitcase text-white"></i>       Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card border-0">
+                <div class="card-body ">
+                    <img class="w-100" src="https://i.pinimg.com/1200x/89/a5/eb/89a5eb3fbff672940b106b4def20db0c.jpg" alt="">
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <p class="text-center fs-5">MilkShake</p>
+                    <p class="text-danger fw-bold text-center">$10.00</p>
+                    <button style="margin-left: 105px;" class="btn btn-info text-white w-50"><i class="fa-solid fa-cart-flatbed-suitcase text-white"></i>       Add to cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card border-0">
+                <div class="card-body ">
+                    <img class="w-100" src="https://i.pinimg.com/1200x/34/a8/ef/34a8efd6a4d2a43d48ec6cf9e90a2735.jpg" alt="">
+                </div>
+                <div class="card-footer bg-white border-0">
+                    <p class="text-center fs-5">Water</p>
+                    <p class="text-danger fw-bold text-center">$1.00</p>
+                    <button style="margin-left: 105px;" class="btn btn-info text-white w-50"><i class="fa-solid fa-cart-flatbed-suitcase text-white"></i>       Add to cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="food" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " id="exampleModalLabel">Burger</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img class="w-75" src="https://i.pinimg.com/1200x/aa/f3/aa/aaf3aa4e15769c860aff8b2a22edfc78.jpg" alt="">
+        <p class="text-danger fw-bold fs-3 ms-3">$5.00</p>
+      </div>
+      <div style="width: 100%;" class="modal-footer d-flex justify-content-center align-items-center">
+        <button style="width: 45%;" type="button" class="btn btn-success " data-bs-dismiss="modal">Buy</button>
+        <button style="width: 45%;" type="button" class="btn btn-primary">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="food1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " id="exampleModalLabel">Pizza</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img class="w-75" src="https://i.pinimg.com/736x/3f/39/46/3f3946804c27e07f373c4e10d90bf915.jpg" alt="">
+        <p class="text-danger fw-bold fs-3 ms-3">$15.00</p>
+      </div>
+      <div style="width: 100%;" class="modal-footer d-flex justify-content-center align-items-center"">
+        <button style="width: 45%;" type="button" class="btn btn-success " data-bs-dismiss="modal">Buy</button>
+        <button style="width: 45%;" type="button" class="btn btn-primary ">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="food2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " id="exampleModalLabel">Matcha Strawberry</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img class="w-75" src="https://i.pinimg.com/736x/e7/e2/b6/e7e2b63e9066f63dd29825be9142e49a.jpg" alt="">
+        <p class="text-danger fw-bold fs-3 ms-3">$2.50</p>
+      </div>
+      <div style="width: 100%;" class="modal-footer d-flex justify-content-center align-items-center"">
+        <button style="width: 45%;" type="button" class="btn btn-success " data-bs-dismiss="modal">Buy</button>
+        <button style="width: 45%;" type="button" class="btn btn-primary ">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content cold-modal">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="auth-form">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+            <label class="form-check-label" for="rememberMe">
+              Remember me
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Sign In</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content cold-modal">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registerModalLabel">Register</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="auth-form">
+          <div class="mb-3">
+            <label for="registerName" class="form-label">Full name</label>
+            <input type="text" class="form-control" id="registerName" placeholder="Enter your full name" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerEmail" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="registerEmail" placeholder="Enter your email" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="registerPassword" placeholder="Create a password" required>
+          </div>
+          <div class="mb-3">
+            <label for="registerConfirmPassword" class="form-label">Confirm password</label>
+            <input type="password" class="form-control" id="registerConfirmPassword" placeholder="Confirm your password" required>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
